@@ -10,6 +10,8 @@ import FindMentor from './pages/FindMentor';
 import BecomeMentor from './pages/BecomeMentor';
 import Pricing from './pages/Pricing';
 import FAQ from './pages/FAQ';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 
 const HomePage = () => (
   <>
@@ -31,6 +33,8 @@ function App() {
           <Route path="/become-mentor" element={<BecomeMentor />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/connexion" element={<LoginPage />} />
+          <Route path="/inscription" element={<RegisterPage />} />
         </Routes>
         <Footer />
       </div>

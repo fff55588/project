@@ -37,14 +37,14 @@ const Header = () => {
 
           {/* Desktop Auth Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <button className="flex items-center space-x-2 px-4 py-2 text-gray-700 hover:text-blue-600 transition-colors">
+            <Link to="/connexion" className="flex items-center space-x-2 px-4 py-2 text-gray-700 hover:text-blue-600 transition-colors">
               <LogIn size={18} />
               <span>Connexion</span>
-            </button>
-            <button className="flex items-center space-x-2 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+            </Link>
+            <Link to="/inscription" className="flex items-center space-x-2 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
               <UserPlus size={18} />
               <span>S'inscrire</span>
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -73,14 +73,14 @@ const Header = () => {
                 FAQ
               </Link>
               <div className="flex flex-col space-y-2 pt-4 border-t">
-                <button className="flex items-center space-x-2 px-4 py-2 text-gray-700 hover:text-blue-600 transition-colors">
+                <Link to="/connexion" className="flex items-center space-x-2 px-4 py-2 text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setIsMenuOpen(false)}>
                   <LogIn size={18} />
                   <span>Connexion</span>
-                </button>
-                <button className="flex items-center space-x-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                </Link>
+                <Link to="/inscription" className="flex items-center space-x-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors" onClick={() => setIsMenuOpen(false)}>
                   <UserPlus size={18} />
                   <span>S'inscrire</span>
-                </button>
+                </Link>
               </div>
             </nav>
           </div>
