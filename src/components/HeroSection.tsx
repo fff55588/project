@@ -1,43 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Search, MapPin } from 'lucide-react';
-import { supabase } from '../supabaseClient';
 
 const HeroSection = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [mentorsCount, setMentorsCount] = useState(500);
-  const [cities, setCities] = useState(['Ouagadougou', 'Bobo-Dioulasso', 'Koudougou', 'Banfora', 'Ouahigouya']);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchMentorsData = async () => {
-      try {
-        // Récupérer tous les mentors
-        const { data: mentors, error } = await supabase
-          .from('mentors')
-          .select('city');
-
-        if (error) {
-          console.error('Erreur lors de la récupération des mentors:', error);
-          return;
-        }
-
-        if (mentors) {
-          // Mettre à jour le nombre de mentors
-          setMentorsCount(mentors.length);
-
-          // Extraire les villes uniques
-          const uniqueCities = [...new Set(mentors.map(mentor => mentor.city).filter(Boolean))];
-          setCities([...uniqueCities, 'Cours en ligne']);
-        }
-      } catch (error) {
-        console.error('Erreur lors de la récupération des données:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchMentorsData();
-  }, []);
 
   return (
     <section className="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white py-20">
@@ -68,9 +33,12 @@ const HeroSection = () => {
               <div className="relative">
                 <MapPin className="absolute left-4 top-4 text-gray-400" size={20} />
                 <select className="pl-12 pr-8 py-4 text-gray-800 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none text-lg bg-white">
-                  {cities.map((city, index) => (
-                    <option key={index} value={city}>{city}</option>
-                  ))}
+                  <option>Ouagadougou</option>
+                  <option>Bobo-Dioulasso</option>
+                  <option>Koudougou</option>
+                  <option>Banfora</option>
+                  <option>Ouahigouya</option>
+                  <option>Cours en ligne</option>
                 </select>
               </div>
               <button className="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-colors shadow-lg">
@@ -83,9 +51,7 @@ const HeroSection = () => {
         {/* Quick Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-            <div className="text-3xl font-bold text-yellow-400 mb-2">
-              {loading ? '...' : `${mentorsCount}+`}
-            </div>
+            <div className="text-3xl font-bold text-yellow-400 mb-2">500+</div>
             <div className="text-blue-100">Mentors qualifiés</div>
           </div>
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
