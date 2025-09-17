@@ -27,6 +27,9 @@ const Header = () => {
             <Link to="/become-mentor" className="text-gray-700 hover:text-blue-600 transition-colors">
               Devenir mentor
             </Link>
+            <Link to="/boutique" className="text-gray-700 hover:text-blue-600 transition-colors">
+              Boutique
+            </Link>
             <Link to="/pricing" className="text-gray-700 hover:text-blue-600 transition-colors">
               Tarifs
             </Link>
@@ -65,6 +68,9 @@ const Header = () => {
               </Link>
               <Link to="/become-mentor" className="text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setIsMenuOpen(false)}>
                 Devenir mentor
+              </Link>
+              <Link to="/boutique" className="text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setIsMenuOpen(false)}>
+                Boutique
               </Link>
               <Link to="/pricing" className="text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setIsMenuOpen(false)}>
                 Tarifs
